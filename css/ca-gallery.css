@@ -104,6 +104,15 @@ body {
     height: 20%;
 }
 
+.offcanvas-aside form {
+    text-align: center;
+}
+
+.contact-form-input {
+    box-sizing: border-box;
+    margin: 2px;
+}
+
 @media (min-width: 575px) {
     .offcanvas-btn-open {
         margin-right: 30vw;

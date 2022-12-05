@@ -47,10 +47,26 @@
 renderPortfolioGrid()
 
 function addPortfolioEventListener() {
+  // open modal
   $('.portfolio-link').on('click', function () {
     const projId = $(this).data('projId')
     renderModal(projId)
   })
+
+  // open project in github
+  $('.btn-open-proj').on('click', function () {
+    const projId = $(this).data('projId')
+    console.log(this)
+    console.log(projId)
+    goToProj(projId)
+  })
+}
+
+function goToProj(projId) {
+  var proj = getProjById(projId)
+  var projLink = proj.url
+  console.log(projLink)
+  window.open(projLink, '_blank')
 }
 
 function renderPortfolioGrid() {
@@ -110,6 +126,14 @@ function renderModal(projId) {
               <li>Category: ${proj.category}</li>
             </ul>
             <button
+              data-proj-id="${proj.id}"
+              class="btn btn-primary btn-open-proj"
+              type="button"
+            >
+              Open Project
+            </button>
+
+            <button
               class="btn btn-primary"
               data-dismiss="modal"
               type="button"
@@ -118,6 +142,6 @@ function renderModal(projId) {
               Close Project
             </button>
 `
-  // $('.portfolio-modal').show()
   $('.modal-body').html(strHTMLs)
+  addPortfolioEventListener()
 }
