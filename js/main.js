@@ -5,7 +5,7 @@ var gProjs = [
   {
     id: 'bookshop',
     name: 'Book Shop',
-    title: 'Flourish and Blotts Magical Book Shop',
+    title: 'Magical Book Shop',
     desc: 'Enter the magical shop in Diagon Alley',
     url: 'https://drorka.github.io/book-shop/',
     publishedAt: 1669903200000,
@@ -34,9 +34,18 @@ var gProjs = [
     name: 'Pacman',
     title: 'The All-Time Classic',
     desc: 'Eat all the foods, avoid all the ghosts',
-    url: 'https://drorka.github.io/InPic/',
+    url: 'https://drorka.github.io/pacman/',
     publishedAt: 1668693600000,
     labels: ['matrix', 'flow', 'render'],
+  },
+  {
+    id: 'inpic',
+    name: 'In-Pic',
+    title: 'Trickier Than You Think',
+    desc: "What's in the pictures?",
+    url: 'https://drorka.github.io/InPic/',
+    publishedAt: 1668693600000,
+    labels: ['flow', 'render'],
   },
 ]
 
