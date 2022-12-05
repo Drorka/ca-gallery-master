@@ -6,10 +6,11 @@ var gProjs = [
     id: 'bookshop',
     name: 'Book Shop',
     title: 'Magical Book Shop',
-    desc: 'Enter the magical shop in Diagon Alley',
+    desc: 'Enter the magical book shop in Diagon Alley',
     url: 'https://drorka.github.io/book-shop/',
     publishedAt: 1669903200000,
     labels: ['table', 'filter', 'crudl', 'render'],
+    category: 'Catalogue',
   },
   {
     id: 'minesweeper',
@@ -19,6 +20,7 @@ var gProjs = [
     url: 'https://drorka.github.io/Minesweeper/',
     publishedAt: 1669557600000,
     labels: ['matrix', 'timer', 'render'],
+    category: 'Games',
   },
   {
     id: 'touchnums',
@@ -28,6 +30,7 @@ var gProjs = [
     url: 'https://drorka.github.io/Touch-nums/',
     publishedAt: 1669125600000,
     labels: ['matrix', 'timer', 'render'],
+    category: 'Games',
   },
   {
     id: 'pacman',
@@ -37,6 +40,7 @@ var gProjs = [
     url: 'https://drorka.github.io/pacman/',
     publishedAt: 1668693600000,
     labels: ['matrix', 'flow', 'render'],
+    category: 'Games',
   },
   {
     id: 'inpic',
@@ -46,6 +50,7 @@ var gProjs = [
     url: 'https://drorka.github.io/InPic/',
     publishedAt: 1668693600000,
     labels: ['flow', 'render'],
+    category: 'Games',
   },
 ]
 
@@ -56,4 +61,10 @@ function getGProjs() {
 function getProjById(projId) {
   const proj = gProjs.find((proj) => projId === proj.id)
   return proj
+}
+
+function getHumanDate(timestamp) {
+  const date = new Date(timestamp)
+  var humanDate = date.toDateString()
+  return humanDate
 }

@@ -88,6 +88,7 @@ function renderPortfolioGrid() {
 
 function renderModal(projId) {
   var proj = getProjById(projId)
+  var date = getHumanDate(proj.publishedAt)
   console.log(projId)
   console.log(proj)
   var strHTMLs = `
@@ -97,15 +98,16 @@ function renderModal(projId) {
             </p>
             <img
               class="img-fluid d-block mx-auto"
-              src="img/portfolio/01-full.jpg"
-              alt=""
+              src="img/portfolio/${proj.id}.png"
+              alt="${proj.title}"
+              title="${proj.title}"
             />
             <p>
               ${proj.desc}
             </p>
             <ul class="list-inline">
-              <li>Date: ${proj.publishedAt}</li>
-              <li>Category: Illustration</li>
+              <li>Date: ${date}</li>
+              <li>Category: ${proj.category}</li>
             </ul>
             <button
               class="btn btn-primary"
