@@ -46,18 +46,25 @@
 
 renderPortfolioGrid()
 
+function addPortfolioEventListener() {
+  $('.portfolio-link').on('click', function () {
+    const projId = $(this).data('projId')
+    renderModal(projId)
+  })
+}
+
 function renderPortfolioGrid() {
   var projs = getGProjs()
 
   var strHTMLs = projs.map(
     (proj) =>
-      `<div class="col-md-4 col-sm-6 portfolio-item">
-  <a
+      `<div  class="col-md-4 col-sm-6 portfolio-item">
+    <a data-proj-id="${proj.id}"
     class="portfolio-link"
     data-toggle="modal"
     href="#portfolioModal1"
   >
-    <div class="portfolio-hover">
+    <div  class="portfolio-hover">
       <div class="portfolio-hover-content">
         <i class="fa fa-plus fa-3x"></i>
       </div>
@@ -76,4 +83,39 @@ function renderPortfolioGrid() {
   )
 
   $('.portfolio-gallery').html(strHTMLs)
+  addPortfolioEventListener()
+}
+
+function renderModal(projId) {
+  var proj = getProjById(projId)
+  console.log(projId)
+  console.log(proj)
+  var strHTMLs = `
+            <h2>${proj.name}</h2>
+            <p class="item-intro text-muted">
+            ${proj.title}
+            </p>
+            <img
+              class="img-fluid d-block mx-auto"
+              src="img/portfolio/01-full.jpg"
+              alt=""
+            />
+            <p>
+              ${proj.desc}
+            </p>
+            <ul class="list-inline">
+              <li>Date: ${proj.publishedAt}</li>
+              <li>Category: Illustration</li>
+            </ul>
+            <button
+              class="btn btn-primary"
+              data-dismiss="modal"
+              type="button"
+            >
+              <i class="fa fa-times"></i>
+              Close Project
+            </button>
+`
+  // $('.portfolio-modal').show()
+  $('.modal-body').html(strHTMLs)
 }
