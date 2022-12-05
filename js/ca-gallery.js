@@ -44,7 +44,12 @@
   })
 })(jQuery) // End of use strict
 
-renderPortfolioGrid()
+$(document).ready(onInit)
+
+function onInit() {
+  renderPortfolioGrid()
+  addContactEventListener()
+}
 
 function addPortfolioEventListener() {
   // open modal
@@ -62,10 +67,22 @@ function addPortfolioEventListener() {
   })
 }
 
+function addContactEventListener() {
+  $('.btn-contact-form').on('click', function (e) {
+    e.preventDefault()
+    var email = $('#exampleInputEmail1').val()
+    var subject = $('#exampleInputSubject1').val()
+    var msg = $('#exampleInputMsg1').val()
+    sendContactMsg(email, subject, msg)
+    $('#exampleInputEmail1').val('')
+    $('#exampleInputSubject1').val('')
+    $('#exampleInputMsg1').val('')
+  })
+}
+
 function goToProj(projId) {
   var proj = getProjById(projId)
   var projLink = proj.url
-  console.log(projLink)
   window.open(projLink, '_blank')
 }
 
@@ -132,7 +149,6 @@ function renderModal(projId) {
             >
               Open Project
             </button>
-
             <button
               class="btn btn-primary"
               data-dismiss="modal"
@@ -144,4 +160,10 @@ function renderModal(projId) {
 `
   $('.modal-body').html(strHTMLs)
   addPortfolioEventListener()
+}
+
+function sendContactMsg(email, subject, msg) {
+  console.log(email, subject, msg)
+  const emailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=drorpa4@gmail.com&su=${subject}&body=${msg}`
+  window.open(emailLink, '_blank')
 }
