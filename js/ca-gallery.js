@@ -147,6 +147,7 @@ function renderModal(projId) {
               class="btn btn-primary btn-open-proj"
               type="button"
             >
+            <i class="fa fa-arrow-right"></i>
               Go To Project
             </button>
             <button
