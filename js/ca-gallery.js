@@ -146,9 +146,9 @@ function renderModal(projId) {
               data-proj-id="${proj.id}"
               class="btn btn-primary btn-open-proj"
               type="button"
-            >
+            > <br>
               Go To Project
-            </button>
+            </button> 
             <button
               class="btn btn-primary"
               data-dismiss="modal"
