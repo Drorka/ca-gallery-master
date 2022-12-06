@@ -660,6 +660,11 @@ ul.social-buttons li a:focus,
 ul.social-buttons li a:hover {
     background-color: #fed136;
 }
+
+.footer-links {
+    color: rgb(69, 60, 103)
+}
+
 .flex-align-center {
     display: flex;
     justify-content: center;
